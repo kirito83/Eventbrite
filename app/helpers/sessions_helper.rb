@@ -1,6 +1,7 @@
 module SessionsHelper
   # Logs in the given user.
   def log_in(user)
+  	flash[:success] = "Parfait, tu es connecté!"
   	session[:user_id] = user.id
   end
 

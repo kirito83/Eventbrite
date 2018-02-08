@@ -17,3 +17,91 @@
 		<% end %>
 	</section>
 </div>
+<br>
+<br>
+<div>
+	<h1>Événements créés</h1>
+	<br>
+	<table class="table table-striped table-hover">
+		<tr>
+			<th>Nom</th>
+			<th>Description</th>
+			<th>Date</th>
+			<th>Lieu</th>
+			<th><i class="em em-eye"></i></th>
+			<th><i class="em em-skull"></i></th>
+		</tr>
+		<% current_user.created_events.each do |e|%>
+		<tr>
+			<td> <%= e.name %> </td>
+			<td> <%= e.description %> </td>
+			<td> <%= e.date.strftime("%d/%m/%Y ") unless e.date.nil? %>  </td>
+			<td> <%= e.place %> </td>
+			<td> <%= button_to "Voir", e, method: :get, class:"btn btn-sm btn-primary", style:"width:100%;" %> </td>
+			<% if e.creator == current_user %>
+			<td> <%= button_to "Supprimer", e, method: :delete, class:"btn btn-sm btn-danger", style:"width:60%;", data: {confirm: 'Etes vous sur?' } %></td>
+			<% end %>
+		</tr>
+		<% end %>
+	</table>
+</div>
+<div class="center">
+	<%= link_to "Créer un nouvel événement", new_event_path, class: "btn btn-sm btn-primary" %>
+</div>
+<br>
+<br>
+<div>
+	<h1>Évenements à venir</h1>
+	<table class="table table-striped table-hover">
+		<tbody>
+			<tr>
+				<th>Nom</th>
+				<th>Description</th>
+				<th>Date</th>
+				<th>Lieu</th>
+				<th><i class="em em-eye"></i></th>
+				<th><i class="em em-flying_saucer"></i></th>
+			</tr>
+			<% current_user.attended_events.each do |e|%>
+			<% if e.date > Time.now %>
+			<tr>
+				<td> <%= e.name %> </td>
+				<td> <%= e.description %> </td>
+				<td> <%= e.date.strftime("%d/%m/%Y ") %>  </td>
+				<td> <%= e.place %> </td>
+				<td> <%= button_to "Voir", e, method: :get, class:"btn btn-sm btn-primary", style:"width:100%;" %> </td>
+				<td> <%= button_to "Se désinscrire", unsuscribe_event_path(e), method: :post, class:"btn btn-sm btn-danger", style:"width:70%;", data: {confirm: 'Etes vous sur?' } %> </td>
+			</tr>
+			<% end %>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+<br>  
+<br>
+<div>
+	<h1>Évenements passés</h1>
+	<br>
+	<table class="table table-striped table-hover">
+		<tbody>
+			<tr>
+				<th>Nom</th>
+				<th>Description</th>
+				<th>Date</th>
+				<th>Lieu</th>
+				<th><i class="em em-eye"></th>
+				</tr>
+				<% current_user.attended_events.each do |e|%>
+				<% if e.date < Time.now %>
+				<tr>
+					<td> <%= e.name %> </td>
+					<td> <%= e.description %> </td>
+					<td> <%= e.date.strftime("%d/%m/%Y ") %> </td>
+					<td> <%= e.place %> </td>
+					<td> <%= button_to "Voir", e, method: :get, class:"btn btn-sm btn-primary", style:"width:100%;" %> </td>
+				</tr>
+				<% end %>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
