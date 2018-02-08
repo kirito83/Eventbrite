@@ -32,6 +32,32 @@ class EventsController < ApplicationController
 		@events = Event.all
 	end
 
+	def edit
+		@user =  current_user
+		@event = Event.find(params[:id])
+		if logged_in? && current_user == @user
+			edit_event_path
+		else
+			redirect_to login_path
+		end
+	end
+
+	def update
+		@user = current_user
+		@event = Event.find(params[:id])
+		if logged_in? && @current_user == @user
+			if @event.update_attributes(event_params)
+				flash[:success] = "Événement edité !"
+				redirect_to event_path
+			else
+				flash[:error] = "Vous n'etes pas le créateur de cet événement."
+				render 'edit'
+			end
+		else
+			redirect_to login_path
+		end
+	end
+
 	def suscribe
 		if logged_in?
 			@event = Event.find(params[:id])
