@@ -37,9 +37,9 @@
 			<td> <%= e.description %> </td>
 			<td> <%= e.date.strftime("%d/%m/%Y ") unless e.date.nil? %>  </td>
 			<td> <%= e.place %> </td>
-			<td> <%= button_to "Voir", e, method: :get, class:"btn btn-sm btn-primary", style:"width:100%;" %> </td>
+			<td> <%= button_to "Voir", e, method: :get, class:"btn btn-sm btn-primary" %> </td>
 			<% if e.creator == current_user %>
-			<td> <%= button_to "Supprimer", e, method: :delete, class:"btn btn-sm btn-danger", style:"width:60%;", data: {confirm: 'Etes vous sur?' } %></td>
+			<td> <%= button_to "Supprimer", e, method: :delete, class:"btn btn-sm btn-danger", data: {confirm: 'Etes vous sur?' } %></td>
 			<% end %>
 		</tr>
 		<% end %>
@@ -69,8 +69,8 @@
 				<td> <%= e.description %> </td>
 				<td> <%= e.date.strftime("%d/%m/%Y ") %>  </td>
 				<td> <%= e.place %> </td>
-				<td> <%= button_to "Voir", e, method: :get, class:"btn btn-sm btn-primary", style:"width:100%;" %> </td>
-				<td> <%= button_to "Se désinscrire", unsuscribe_event_path(e), method: :post, class:"btn btn-sm btn-danger", style:"width:70%;", data: {confirm: 'Etes vous sur?' } %> </td>
+				<td> <%= button_to "Voir", e, method: :get, class:"btn btn-sm btn-primary" %> </td>
+				<td> <%= button_to "Se désinscrire", unsuscribe_event_path(e), method: :post, class:"btn btn-sm btn-danger", data: {confirm: 'Etes vous sur?' } %> </td>
 			</tr>
 			<% end %>
 			<% end %>
@@ -98,7 +98,7 @@
 					<td> <%= e.description %> </td>
 					<td> <%= e.date.strftime("%d/%m/%Y ") %> </td>
 					<td> <%= e.place %> </td>
-					<td> <%= button_to "Voir", e, method: :get, class:"btn btn-sm btn-primary", style:"width:100%;" %> </td>
+					<td> <%= button_to "Voir", e, method: :get, class:"btn btn-sm btn-primary" %> </td>
 				</tr>
 				<% end %>
 				<% end %>

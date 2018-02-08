@@ -18,7 +18,7 @@
                 <td> <%= e.name %> </td>
                 <td> <%= e.date.strftime("%d/%m/%Y ") %> </td>
                 <td> <%= e.place %> </td>
-                <td> <%= link_to "Voir", e, class: "btn btn-sm btn-info", style:"width:35%;" %> </td>
+                <td> <%= link_to "Voir", e, class: "btn btn-sm btn-info" %> </td>
                 <% if logged_in? %>
                 <% if e.attendees.include?(current_user) %>
                 <td class="text-success"> Inscris </td>
@@ -53,7 +53,7 @@
                 <td> <%= e.name %> </td>
                 <td> <%= e.date.strftime("%d/%m/%Y ") %> </td>
                 <td> <%= e.place %> </td>
-                <td> <%= link_to "Voir", e, class: "btn btn-sm btn-info", style:"width:35%;" %> </td>
+                <td> <%= link_to "Voir", e, class: "btn btn-sm btn-info" %> </td>
                 <% if logged_in? %>
                 <% if e.attendees.include?(current_user) %>
                 <td class="text-success"> Inscris </td>
