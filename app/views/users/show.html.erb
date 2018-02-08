@@ -28,8 +28,8 @@
 			<th>Description</th>
 			<th>Date</th>
 			<th>Lieu</th>
-			<th><i class="em em-eye"></i></th>
-			<th><i class="em em-skull"></i></th>
+			<th><i class="em em-eye" style="margin-left:15%"></i></th>
+			<th><i class="em em-skull" style="margin-left:25%"></i></th>
 		</tr>
 		<% current_user.created_events.each do |e|%>
 		<tr>
@@ -59,8 +59,8 @@
 				<th>Description</th>
 				<th>Date</th>
 				<th>Lieu</th>
-				<th><i class="em em-eye"></i></th>
-				<th><i class="em em-flying_saucer"></i></th>
+				<th><i class="em em-eye" style="margin-left:15%"></i></th>
+				<th><i class="em em-flying_saucer" style="margin-left:28%"></i></th>
 			</tr>
 			<% current_user.attended_events.each do |e|%>
 			<% if e.date > Time.now %>
@@ -89,7 +89,7 @@
 				<th>Description</th>
 				<th>Date</th>
 				<th>Lieu</th>
-				<th><i class="em em-eye"></th>
+				<th><i class="em em-eye" style="margin-left:15%"></th>
 				</tr>
 				<% current_user.attended_events.each do |e|%>
 				<% if e.date < Time.now %>

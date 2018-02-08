@@ -7,7 +7,7 @@
                 <th>Nom</th>
                 <th>Date</th>
                 <th>Lieu</th>
-                <th><i class="em em-eye"/></th>
+                <th><i class="em em-eye" style="margin-left:15%"></th>
                 <% if logged_in? %>
                 <th>Participation</th>
                 <% end %>
@@ -42,7 +42,7 @@
                 <th>Nom</th>
                 <th>Date</th>
                 <th>Lieu</th>
-                <th><i class="em em-eye"/></th>
+                <th><i class="em em-eye" style="margin-left:15%"></th>
                 <% if logged_in? %>
                 <th>Participation</th>
                 <% end %>
@@ -56,9 +56,9 @@
                 <td> <%= link_to "Voir", e, class: "btn btn-sm btn-info" %> </td>
                 <% if logged_in? %>
                 <% if e.attendees.include?(current_user) %>
-                <td class="text-success"> Inscris </td>
+                <td class="text-success" style='text-align:center'> Inscris </td>
                 <% else %>
-                <td style="width:10%;"> <%= button_to 'Rejoindre', suscribe_event_path(e), method: :post, confirm: 'really?',  class: "btn btn-sm btn-primary" %> </td>  
+                <td style="width:10%; text-align:center"> <%= button_to 'Rejoindre', suscribe_event_path(e), method: :post, confirm: 'really?',  class: "btn btn-sm btn-primary" %> </td>  
                 <% end %>
                 <% end %>
             </tr>
