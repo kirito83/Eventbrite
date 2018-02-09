@@ -27,7 +27,7 @@
                 <% if e.attendees.include?(current_user) %>
                 <td class="text-success"> Inscris </td>
                 <% else %>
-                <td> <%= button_to 'Rejoindre', suscribe_event_path(e), method: :post, confirm: 'really?',  class: "btn btn-sm btn-primary" %> </td>  
+                <td> <%= button_to 'Participer', suscribe_event_path(e), method: :post, confirm: 'really?',  class: "btn btn-sm btn-primary" %> </td>  
                 <% end %>
                 <% end %>
             </tr>
@@ -62,7 +62,7 @@
                 <% if e.attendees.include?(current_user) %>
                 <td class="text-success"> Inscris </td>
                 <% else %>
-                <td> <%= button_to 'Rejoindre', suscribe_event_path(e), method: :post, confirm: 'really?',  class: "btn btn-sm btn-primary" %> </td>  
+                <td> <%= button_to 'Participer', suscribe_event_path(e), method: :post, confirm: 'really?',  class: "btn btn-sm btn-primary" %> </td>  
                 <% end %>
                 <% end %>
             </tr>

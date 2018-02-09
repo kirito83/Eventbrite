@@ -8,14 +8,14 @@
 <div>
 	<section class="user_info">
 		<h2>
-			<strong>Nom : </strong><%= @user.name %>
+			<strong>Pseudo : </strong><%= @user.name %>
 		</h2>
 		<h2>
 			<strong>Email : </strong><%= @user.email %>
 		</h2>
 		<% if current_user == @user %>
 		<%= form_tag edit_user_path(@user), method: 'get' do %>
-		<input style="width:20%; margin-left:40%" type="submit" value="Editer" class="btn btn-sm btn-primary">
+		<input style="width:20%; margin-left:40%" type="submit" value="Modifier le profil" class="btn btn-sm btn-primary">
 		<% end %>
 		<% end %>
 	</section>
@@ -28,11 +28,11 @@
 	<table class="table table-striped table-hover">
 		<tr>
 			<th>Nom</th>
-			<th>Description</th>
+			<th>Déscription</th>
 			<th>Date</th>
 			<th>Lieu</th>
-			<th><i class="em em-eye" style="margin-left:15%"></i></th>
-			<th><i class="em em-skull" style="margin-left:25%"></i></th>
+			<th><i class="em em-eye"></i></th>
+			<th><i class="em em-skull"></i></th>
 		</tr>
 		<% current_user.created_events.each do |e|%>
 		<tr>
@@ -49,7 +49,7 @@
 	</table>
 </div>
 <div class="center">
-	<%= link_to "Créer un nouvel événement", new_event_path, class: "btn btn-sm btn-primary" %>
+	<%= link_to "Créer une nouvelle soirée", new_event_path, class: "btn btn-sm btn-primary" %>
 </div>
 <br>
 <br>
@@ -59,11 +59,11 @@
 		<tbody>
 			<tr>
 				<th>Nom</th>
-				<th>Description</th>
+				<th>Déscription</th>
 				<th>Date</th>
 				<th>Lieu</th>
-				<th><i class="em em-eye" style="margin-left:15%"></i></th>
-				<th><i class="em em-flying_saucer" style="margin-left:28%"></i></th>
+				<th><i class="em em-eye"></i></th>
+				<th><i class="em em-flying_saucer"></i></th>
 			</tr>
 			<% current_user.attended_events.each do |e|%>
 			<% if e.date > Time.now %>
@@ -89,10 +89,10 @@
 		<tbody>
 			<tr>
 				<th>Nom</th>
-				<th>Description</th>
+				<th>Déscription</th>
 				<th>Date</th>
 				<th>Lieu</th>
-				<th><i class="em em-eye" style="margin-left:15%"></th>
+				<th><i class="em em-eye"></th>
 				</tr>
 				<% current_user.attended_events.each do |e|%>
 				<% if e.date < Time.now %>

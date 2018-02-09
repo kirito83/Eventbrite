@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 	def login_required
 		if current_user.blank?
 			redirect_to('/') 
-			flash[:danger] = "Connecte toi pour accéder à ta page !"
+			flash[:danger] = "Connecte toi pour accéder à ta page perso !"
 		end
 	end
 end

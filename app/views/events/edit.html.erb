@@ -1,5 +1,5 @@
 <% provide(:title, 'Nouvel événement') %>
-<h1>Édite l'événement</h1>
+<h1>Modification de la soirée</h1>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@event, url: event_path) do |f| %>
@@ -11,7 +11,7 @@
     <br>
     <div class="input-group">
       <span class="input-group-addon"><i class="glyphicon glyphicon-edit"></i></span>
-      <%= f.text_field :description, class: 'form-control', placeholder: "Description" %>
+      <%= f.text_field :description, class: 'form-control', placeholder: "Déscription" %>
     </div>
     <br>
     <div class="input-group">
@@ -24,7 +24,7 @@
       <%= f.text_field :place, class: 'form-control', placeholder: "Lieu" %>
     </div>
     <br>
-    <%= f.submit "Éditer l'événement", class: "btn btn-sm btn-primary", method: :patch %>
+    <%= f.submit "Modifier la soirée", class: "btn btn-sm btn-primary", method: :patch %>
     <% end %>
   </div>
 </div>

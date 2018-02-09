@@ -47,10 +47,10 @@ class EventsController < ApplicationController
 		@event = Event.find(params[:id])
 		if logged_in? && @current_user == @user
 			if @event.update_attributes(event_params)
-				flash[:success] = "Événement edité !"
+				flash[:success] = "Soirée editée !"
 				redirect_to event_path
 			else
-				flash[:error] = "Vous n'etes pas le créateur de cet événement."
+				flash[:error] = "Vous n'etes pas le créateur de la soirée."
 				render 'edit'
 			end
 		else
@@ -63,10 +63,10 @@ class EventsController < ApplicationController
 			@event = Event.find(params[:id])
 			@event.attendees << current_user
 			@event.save
-			flash[:success] = "Vous êtes inscrit à l'événement!"
+			flash[:success] = "Vous êtes inscrit à la soirée !"
 			redirect_to events_path
 		else
-			falsh[:error] = "Vous devez vous connecter pour vous inscrire à un événement."
+			falsh[:error] = "Vous devez vous connecter pour vous inscrire à la soirée."
 			redirect_to login_path
 		end
 	end
@@ -75,7 +75,7 @@ class EventsController < ApplicationController
 		@event = Event.find(params[:id])
 		@event.attendees.delete(current_user)
 		@event.save
-		flash[:success] = "Vous êtes désinscrit !"
+		flash[:success] = "Vous êtes désinscrit."
 		redirect_to current_user
 	end
 
@@ -84,7 +84,7 @@ class EventsController < ApplicationController
 		@user = User.find(params[:user])
 		@event.attendees << @user
 		@event.save
-		flash[:success] = "Vous avez ajouté votre ami à l'événement !"
+		flash[:success] = "Vous avez ajouté votre ami à la soirée !"
 		redirect_to @event
 	end
 
@@ -92,7 +92,7 @@ class EventsController < ApplicationController
 		@user = current_user
 		@event = Event.find(params[:id])
 		@event.destroy
-		flash[:success] = "L'évenement a été supprimé !"
+		flash[:success] = "La soirée a été supprimée."
 		redirect_to @current_user
 	end
 
