@@ -1,9 +1,27 @@
-<h1>Bienvenue !</h1>
+<div class="center">
+	<%= image_tag('culs.jpg', size:'800x400') %>
+</div>
+<br>
+<div style='width:100%'>
+	<div style="float:right;">
+		<%= image_tag('coiffeur.jpg', size:'400x700') %>
+	</div>
+	<div style="float:left;">
+		<%= image_tag('maelle&marie.jpg', size:'400x700') %>
+	</div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<h1>Bienvenue sur le site officiel de la Fiolaxie !</h1>
 <br>
 <div class="center">
+	<p>Déjà membre ? </p>
 	<%= link_to "Se connecter", login_path, class: "btn btn-primary" %>
 </div>
 <br>
 <div class="center">
+	<p>Envie de rejoindre la famille ? </p>
 	<%= link_to "S'inscrire", signup_path, class: "btn btn-primary" %>
 </div>

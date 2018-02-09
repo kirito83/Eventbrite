@@ -1,13 +1,17 @@
 <% provide(:title, "Événements") %>
+<div class="center">
+    <%= image_tag('soiree.jpg', size:'700x400') %>
+</div>
+<br>
 <div>
-    <h1>Évenements à venir</h1>
+    <h1>Soirées à venir</h1>
     <table class="table table-striped table-hover">
         <tbody>
             <tr>
                 <th>Nom</th>
                 <th>Date</th>
                 <th>Lieu</th>
-                <th><i class="em em-eye" style="margin-left:15%"></th>
+                <th><i class="em em-eye"></th>
                 <% if logged_in? %>
                 <th>Participation</th>
                 <% end %>
@@ -23,7 +27,7 @@
                 <% if e.attendees.include?(current_user) %>
                 <td class="text-success"> Inscris </td>
                 <% else %>
-                <td style="width:10%;"> <%= button_to 'Rejoindre', suscribe_event_path(e), method: :post, confirm: 'really?',  class: "btn btn-sm btn-primary" %> </td>  
+                <td> <%= button_to 'Rejoindre', suscribe_event_path(e), method: :post, confirm: 'really?',  class: "btn btn-sm btn-primary" %> </td>  
                 <% end %>
                 <% end %>
             </tr>
@@ -35,14 +39,14 @@
 <br/>
 <br/>
 <div>
-    <h1>Évenements passés</h1>
+    <h1>Soirées passés</h1>
     <table class="table table-striped table-hover">
         <tbody>
             <tr>
                 <th>Nom</th>
                 <th>Date</th>
                 <th>Lieu</th>
-                <th><i class="em em-eye" style="margin-left:15%"></th>
+                <th><i class="em em-eye"></th>
                 <% if logged_in? %>
                 <th>Participation</th>
                 <% end %>
@@ -56,9 +60,9 @@
                 <td> <%= link_to "Voir", e, class: "btn btn-sm btn-info" %> </td>
                 <% if logged_in? %>
                 <% if e.attendees.include?(current_user) %>
-                <td class="text-success" style='text-align:center'> Inscris </td>
+                <td class="text-success"> Inscris </td>
                 <% else %>
-                <td style="width:10%; text-align:center"> <%= button_to 'Rejoindre', suscribe_event_path(e), method: :post, confirm: 'really?',  class: "btn btn-sm btn-primary" %> </td>  
+                <td> <%= button_to 'Rejoindre', suscribe_event_path(e), method: :post, confirm: 'really?',  class: "btn btn-sm btn-primary" %> </td>  
                 <% end %>
                 <% end %>
             </tr>
