@@ -71,7 +71,7 @@ class EventsController < ApplicationController
 		end
 	end
 
-	def unattend
+	def unsuscribe
 		@event = Event.find(params[:id])
 		@event.attendees.delete(current_user)
 		@event.save
