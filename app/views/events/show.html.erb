@@ -2,7 +2,11 @@
 <div class="container">
 	<h1>Informations sur l'événement</h1>
 	<br>
+	<% if @event.creator %>
 	<h2><strong>Créateur :</strong> <%= @event.creator.name.capitalize %></h2>
+	<% else %>
+	<h2><strong>Créateur :</strong> profil supprimé</h2>
+	<% end %>
 	<br>
 	<table class="table table-striped table-hover">
 		<tr>

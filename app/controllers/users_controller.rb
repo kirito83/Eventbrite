@@ -45,8 +45,8 @@ class UsersController < ApplicationController
 
 	def destroy
 		@user = User.find(params[:id])
-		log_out
 		@user.destroy
+		log_out
 		flash[:success] = "Ton compte a bien été supprimé."
 		redirect_to root_path
 	end
