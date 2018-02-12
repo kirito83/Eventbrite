@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 	before_action :login_required, except:[:new,:create]
-	#before_destroy :destroy_created_events
+	
 	def new
 		@user = User.new
 	end
@@ -55,8 +55,5 @@ class UsersController < ApplicationController
 	private
 	def user_params
 		params.require(:user).permit(:id, :name, :email, :password_digest, :password, :password_confirmation)
-	end
-	def destroy_created_events
-		self.created_events.destroy_all
 	end
 end
