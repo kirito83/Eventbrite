@@ -45,6 +45,7 @@ class UsersController < ApplicationController
 
 	def destroy
 		@user = User.find(params[:id])
+		@user.created_events.destroy_all
 		log_out
 		@user.destroy
 		flash[:success] = "Ton compte a bien été supprimé."
