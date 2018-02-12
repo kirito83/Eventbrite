@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+	before_destroy :destroy_created_events
+
 	def new
 		if logged_in?
 			@event = Event.new
@@ -99,5 +101,8 @@ class EventsController < ApplicationController
 	private
 	def event_params
 		params.require(:event).permit(:name, :description, :date, :place)
+	end
+	def destory_created_events
+		self.created_events.destroy_all
 	end
 end
