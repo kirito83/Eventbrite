@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 	before_action :login_required, except:[:new,:create]
-	before_destroy :destroy_created_events
+	#before_destroy :destroy_created_events
 	def new
 		@user = User.new
 	end
