@@ -2,9 +2,17 @@ class User < ApplicationRecord
 	has_many :created_events, class_name: 'Event'
 	has_and_belongs_to_many :attended_events, class_name: 'Event'
 
+	attr_accessor :sign_up_code
+	validates :sign_up_code,
+		on: :create,
+		presence: true,
+		inclusion: {in: ["FIOLAXIE2"]}
+
 	before_save { self.email = email.downcase }
-	validates :name,  presence: true, length: { maximum: 50 },
-	uniqueness: { case_sensitive: false }
+	validates :name,  
+		presence: true, 
+		length: { maximum: 50 }, 
+		uniqueness: { case_sensitive: false }
 	
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	validates :email, presence: true, length: { maximum: 255 },

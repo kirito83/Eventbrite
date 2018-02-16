@@ -25,6 +25,11 @@
 			<%= f.password_field :password_confirmation, class: 'form-control', placeholder: "Confirmation" %>
 		</div>
 		<br>
+		<div class="input-group">
+			<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+			<%= f.text_field :sign_up_code, class: 'form-control', placeholder: "Code" %>
+		</div>
+		<br>
 		<%= f.submit "Rejoindre la famille !", class: "btn btn-primary", style: "width:70%; margin-left:15%" %>
 		<% end %>
 	</div>
